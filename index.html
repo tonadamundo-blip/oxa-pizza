@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTY<!DOCTYPE html> 
 <html lang="es"> 
 <head> 
     <meta charset="UTF-8"> 
@@ -96,11 +96,70 @@
 
         .btn-yape { background: linear-gradient(135deg, #742283, #9b32af); color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px; border: none; width: 100%; cursor: pointer; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(116, 34, 131, 0.4); box-sizing: border-box; } 
          
-        .oven-screen { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px 0; text-align: center; } 
-        .fire-anim { font-size: 3.5rem; animation: burn 0.6s infinite alternate; } 
-        @keyframes burn { 0% { transform: scale(1); } 100% { transform: scale(1.1); } } 
+        .oven-screen { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 15px 0; text-align: center; } 
+        
+        .oven-scene {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1f140c 0%, #0d0805 100%);
+            border: 3px solid #b45309;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.4), 0 8px 20px rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .oven-fire-bg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: radial-gradient(ellipse at bottom, #f59e0b 0%, #ef4444 50%, transparent 100%);
+            opacity: 0.8;
+            animation: fire-glow 0.8s infinite alternate ease-in-out;
+        }
+        @keyframes fire-glow {
+            0% { opacity: 0.6; transform: scaleY(0.9); }
+            100% { opacity: 1; transform: scaleY(1.1); }
+        }
+        .pizza-bake-img-box {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+            position: relative;
+            z-index: 2;
+            animation: pizza-spin-bake 4s linear forwards;
+        }
+        .pizza-bake-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.4) contrast(1.2);
+        }
+        @keyframes pizza-spin-bake {
+            0% { transform: scale(0.4) rotate(0deg); filter: brightness(0.4) sepia(1); }
+            50% { transform: scale(1.05) rotate(180deg); filter: brightness(0.9) sepia(0.3); }
+            100% { transform: scale(1) rotate(360deg); filter: brightness(1.1) sepia(0); }
+        }
+        .sparkle-effect {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: float-sparkle 1.2s infinite ease-in-out;
+            z-index: 3;
+        }
+        @keyframes float-sparkle {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+        }
+
         .progress-bar-container { width: 100%; background: #1f2937; height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid #374151; } 
-        .progress-bar { width: 0%; height: 100%; background: var(--accent); transition: width 0.1s linear; } 
+        .progress-bar { width: 0%; height: 100%; background: var(--accent); transition: width 0.04s linear; } 
          
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 100; padding: 15px; overflow-y: auto; box-sizing: border-box; } 
         .modal-content { background: #111827; border: 2px solid var(--accent); padding: 18px; border-radius: 12px; text-align: center; max-width: 320px; width: 100%; margin: auto; box-sizing: border-box; } 
@@ -257,13 +316,21 @@
     </div> 
      
     <div class="app-container oven-screen" id="ovenScreen"> 
-        <div class="fire-anim">🔥🍕🔥</div> 
-        <h2 style="margin:0; font-size: 1.1rem; color: var(--accent);">Horneando en Piedra...</h2> 
-        <p style="font-size: 0.75rem; color: var(--text-muted); margin:0;">Preparando tu pedido con toque artesanal de Oxapampa</p> 
+        <h2 style="margin:0; font-size: 1.1rem; color: var(--accent);">🔥 Horneando en Horno a Leña...</h2> 
+        <div class="oven-scene">
+            <div class="oven-fire-bg"></div>
+            <div class="pizza-bake-img-box">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza Horneando">
+            </div>
+            <div class="sparkle-effect" style="left: 20%; top: 30%; animation-delay: 0.1s;">✨</div>
+            <div class="sparkle-effect" style="left: 75%; top: 20%; animation-delay: 0.5s;">🔥</div>
+            <div class="sparkle-effect" style="left: 60%; top: 60%; animation-delay: 0.9s;">⭐</div>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin:0;">Cocinando con sazón tradicional de Oxapampa</p> 
         <div class="progress-bar-container"> 
             <div class="progress-bar" id="progressBar"></div> 
         </div> 
-        <div id="bakeStatusText" style="font-size: 0.8rem; font-weight:bold; color: #38bdf8;">Calentando horno...</div> 
+        <div id="bakeStatusText" style="font-size: 0.8rem; font-weight:bold; color: #38bdf8;">Encendiendo horno de piedra...</div> 
     </div> 
      
     <div id="paymentModal" class="modal"> 
@@ -279,7 +346,7 @@
                 <div class="cheese-overlay-badge">🧀 ¡Pizza Artesanal con Extra Queso! 🍕</div>
             </div>
 
-            <p style="font-size: 0.68rem; color: #9ca3af; margin: 4px 0 2px 0; font-weight: bold;">Titular: Carlos Fernando Welsch Marin</p>
+            <p style="font-size: 0.68rem; color: #9ca3af; margin: 4px 0 2px 0; font-weight: bold;">Titular: Abel Shu*</p>
             <p style="font-size: 0.68rem; color: #9ca3af; margin: 0 0 8px 0; font-weight: bold;">Número: +51 983 248 755</p> 
              
             <button class="btn-paid-vibrant" onclick="confirmPaymentAndBake()">✨ Voy a pagar / Finalizar pago 🚀</button> 
@@ -374,7 +441,7 @@
             navigator.clipboard.writeText(phoneNumber).then(() => {
                 alert("¡Número +51 983 248 755 copiado al portapapeles con éxito!");
             }).catch(err => {
-                alert("Número para yapear: +51 983 248 755 (Titular: Carlos Fernando Welsch Marin)");
+                alert("Número para yapear: +51 983 248 755 (Titular: Abel Shu*)");
             });
         }
 
@@ -429,16 +496,16 @@
             let width = 0; 
              
             let interval = setInterval(() => { 
-                width += 2.5; 
+                width += 1; 
                 progressBar.style.width = width + '%'; 
-                if (width === 25) statusText.innerText = "Verificando pago y datos..."; 
-                if (width === 60) statusText.innerText = "Horneando en horno artesanal..."; 
-                if (width === 90) statusText.innerText = "¡Empacando con tu cupón!"; 
+                if (width === 15) statusText.innerText = "🔥 Ingresando pizza al horno a leña..."; 
+                if (width === 45) statusText.innerText = "🧀 Derritiendo queso artesanal de Oxapampa..."; 
+                if (width === 80) statusText.innerText = "✨ ¡Dándole el toque final crujiente!"; 
                 if (width >= 100) { 
                     clearInterval(interval); 
-                    setTimeout(showResultModal, 400); 
+                    setTimeout(showResultModal, 300); 
                 } 
-            }, 100); 
+            }, 40); 
         } 
 
         function showResultModal() { 
