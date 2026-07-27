@@ -7,7 +7,7 @@
     <style> 
         :root { --bg: #0b0f19; --card-bg: #111827; --accent: #f59e0b; --text: #f3f4f6; --text-muted: #9ca3af; } 
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; } 
-        
+         
         .header-banner {
             width: 100%;
             max-width: 360px;
@@ -64,7 +64,7 @@
         .opt-card.selected { border-color: var(--accent); background: rgba(245, 158, 11, 0.15); } 
         .info-panel { background: #1f2937; padding: 8px 12px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--accent); } 
         .btn-action { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-weight: bold; cursor: pointer; border: none; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); } 
-        
+         
         .btn-paid-vibrant { 
             background: linear-gradient(135deg, #10b981, #059669); 
             color: #ffffff; 
@@ -95,18 +95,18 @@
         }
 
         .btn-yape { background: linear-gradient(135deg, #742283, #9b32af); color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px; border: none; width: 100%; cursor: pointer; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(116, 34, 131, 0.4); box-sizing: border-box; } 
-        
+         
         .oven-screen { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px 0; text-align: center; } 
         .fire-anim { font-size: 3.5rem; animation: burn 0.6s infinite alternate; } 
         @keyframes burn { 0% { transform: scale(1); } 100% { transform: scale(1.1); } } 
         .progress-bar-container { width: 100%; background: #1f2937; height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid #374151; } 
         .progress-bar { width: 0%; height: 100%; background: var(--accent); transition: width 0.1s linear; } 
-        
+         
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 100; padding: 15px; overflow-y: auto; box-sizing: border-box; } 
         .modal-content { background: #111827; border: 2px solid var(--accent); padding: 18px; border-radius: 12px; text-align: center; max-width: 320px; width: 100%; margin: auto; box-sizing: border-box; } 
         .coupon-box { background: #090d16; border: 2px dashed var(--accent); padding: 10px; margin: 8px 0; font-family: monospace; font-size: 1.05rem; color: #38bdf8; letter-spacing: 2px; border-radius: 6px; } 
         .btn-wpp { background-color: #25d366; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; box-sizing: border-box; } 
-        
+         
         .cheese-pizza-container {
             width: 100%;
             height: 150px;
@@ -156,7 +156,7 @@
             <p>👨‍🍳 Horno a leña & sazón tradicional de Oxapampa</p>
         </div>
     </div> 
-    
+     
     <div class="app-container" id="mainCard"> 
         <div> 
             <div class="section-title">1. Elige tu Especialidad</div> 
@@ -177,7 +177,7 @@
                 </optgroup> 
             </select> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">2. Elige el Tamaño</div> 
             <div class="options-grid"> 
@@ -186,7 +186,7 @@
                 <div class="opt-card" onclick="setSize('Entera', this)">🍕🍕🍕 Entera</div> 
             </div> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">3. Bebida Refrescante (S/. 4.00 c/u)</div> 
             <select id="drinkSelect" onchange="updatePrice()"> 
@@ -197,7 +197,7 @@
                 <option value="Gaseosa 500ml">⚱️ Gaseosa 500ml</option> 
             </select> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">4. Modalidad de Atención</div> 
             <div class="options-grid"> 
@@ -205,7 +205,7 @@
                 <div class="opt-card" onclick="setServiceType('Llevar', this)">📦 Para Llevar (+S/.2 caja)</div> 
             </div> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">5. Tipo de Despacho</div> 
             <select id="deliverySelect" onchange="handleDeliveryChange(); updatePrice();"> 
@@ -213,7 +213,7 @@
                 <option value="Delivery">Delivery / Despacho a Domicilio</option> 
             </select> 
         </div> 
-        
+         
         <div id="deliveryZoneContainer" style="display: none;"> 
             <div class="section-title">6. Zona de Entrega</div> 
             <select id="zoneSelect" onchange="updatePrice()"> 
@@ -223,7 +223,7 @@
                 <option value="8">Cualquier punto urbano más alejado (S/. 8)</option> 
             </select> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">7. Tus Datos</div> 
             <div style="display: flex; flex-direction: column; gap: 6px;"> 
@@ -232,7 +232,7 @@
                 <input type="tel" id="clientPhone" placeholder="Número de Celular (Opcional - Para registrarte)"> 
             </div> 
         </div> 
-        
+         
         <div> 
             <div class="section-title">8. Forma de Pago</div> 
             <select id="paymentSelect"> 
@@ -241,7 +241,7 @@
                 <option value="Contra Entrega">💵 Pago Contra Entrega (Efectivo)</option> 
             </select> 
         </div> 
-        
+         
         <div class="info-panel"> 
             <div> 
                 <div style="font-size: 0.65rem; color: var(--text-muted);">RESUMEN:</div> 
@@ -252,10 +252,10 @@
                 <div id="totalPriceDisplay" style="font-size: 1rem; font-weight: bold; color: var(--accent);">S/. 6.00</div> 
             </div> 
         </div> 
-        
+         
         <button class="btn-action" onclick="handleCheckout()">🚀 Pagar y Hornear Pedido</button> 
     </div> 
-    
+     
     <div class="app-container oven-screen" id="ovenScreen"> 
         <div class="fire-anim">🔥🍕🔥</div> 
         <h2 style="margin:0; font-size: 1.1rem; color: var(--accent);">Horneando en Piedra...</h2> 
@@ -265,25 +265,25 @@
         </div> 
         <div id="bakeStatusText" style="font-size: 0.8rem; font-weight:bold; color: #38bdf8;">Calentando horno...</div> 
     </div> 
-    
+     
     <div id="paymentModal" class="modal"> 
         <div class="modal-content"> 
             <h2 style="color: var(--accent); margin-top:0;" id="payModalTitle">Pagar con Yape</h2> 
             <p style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0;">Monto exacto a transferir:</p> 
             <div style="font-size: 1.3rem; font-weight: bold; color: #38bdf8; margin-bottom: 4px;" id="payModalAmount">S/. 6.00</div> 
-            
-            <button class="btn-yape" onclick="copyYapeNumber()">📱 Copiar Número (928362491)</button> 
-            
+             
+            <button class="btn-yape" onclick="copyYapeNumber()">📱 Copiar Número (+51 983 248 755)</button> 
+             
             <div class="cheese-pizza-container">
                 <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza deliciosa llena de queso">
                 <div class="cheese-overlay-badge">🧀 ¡Pizza Artesanal con Extra Queso! 🍕</div>
             </div>
 
             <p style="font-size: 0.68rem; color: #9ca3af; margin: 4px 0 2px 0; font-weight: bold;">Titular: Carlos Fernando Welsch Marin</p>
-            <p style="font-size: 0.68rem; color: #9ca3af; margin: 0 0 8px 0; font-weight: bold;">Número: 928362491</p>
-            
+            <p style="font-size: 0.68rem; color: #9ca3af; margin: 0 0 8px 0; font-weight: bold;">Número: +51 983 248 755</p> 
+             
             <button class="btn-paid-vibrant" onclick="confirmPaymentAndBake()">✨ Voy a pagar / Finalizar pago 🚀</button> 
-            
+             
             <button onclick="closePaymentModal()" style="margin-top: 6px; width: 100%; background: #374151; border:none; color:white; padding:7px; border-radius:6px; cursor:pointer; font-size:0.8rem;">← Volver al formulario</button> 
         </div> 
     </div> 
@@ -298,7 +298,7 @@
             <button onclick="closeModal()" style="margin-top: 8px; width: 100%; background: #374151; border:none; color:white; padding:7px; border-radius:6px; cursor:pointer; font-size:0.8rem;">Crear Otro Pedido</button> 
         </div> 
     </div> 
-    
+     
     <script> 
         let currentSize = 'Porcion'; 
         let serviceType = 'Local'; 
@@ -323,7 +323,7 @@
             let zoneContainer = document.getElementById('deliveryZoneContainer'); 
             let addressInput = document.getElementById('clientAddress'); 
             let phoneInput = document.getElementById('clientPhone');
-            
+             
             if (deliveryOpt === 'Delivery') { 
                 zoneContainer.style.display = 'block'; 
                 addressInput.style.display = 'block'; 
@@ -352,29 +352,29 @@
             let boxPrice = (serviceType === 'Llevar') ? 2 : 0; 
             let deliveryOpt = document.getElementById('deliverySelect').value; 
             let deliveryPrice = 0; 
-            
+             
             if (deliveryOpt === 'Delivery') { 
                 let zoneSelect = document.getElementById('zoneSelect'); 
                 deliveryPrice = parseInt(zoneSelect.value); 
             } 
-            
+             
             currentPrice = pizzaPrice + drinkPrice + boxPrice + deliveryPrice; 
             let pizzaName = selectedOption.value; 
             let desc = `${pizzaName} (${currentSize})`; 
             if (drinkSelect !== 'Ninguna') desc += ` + ${drinkSelect}`; 
             if (serviceType === 'Llevar') desc += ` [P/ Llevar +S/.2]`; 
             if (deliveryOpt === 'Delivery') desc += ` [Delivery]`; 
-            
+             
             document.getElementById('summaryText').innerText = desc; 
             document.getElementById('totalPriceDisplay').innerText = `S/. ${currentPrice.toFixed(2)}`; 
         } 
 
         function copyYapeNumber() {
-            const phoneNumber = "928362491";
+            const phoneNumber = "+51 983 248 755";
             navigator.clipboard.writeText(phoneNumber).then(() => {
-                alert("¡Número 928362491 copiado al portapapeles con éxito!");
+                alert("¡Número +51 983 248 755 copiado al portapapeles con éxito!");
             }).catch(err => {
-                alert("Número para yapear: 928362491 (Titular: Carlos Fernando Welsch Marin)");
+                alert("Número para yapear: +51 983 248 755 (Titular: Carlos Fernando Welsch Marin)");
             });
         }
 
@@ -423,11 +423,11 @@
         function startBakingProcess() { 
             document.getElementById('mainCard').style.display = 'none'; 
             document.getElementById('ovenScreen').style.display = 'flex'; 
-            
+             
             let progressBar = document.getElementById('progressBar'); 
             let statusText = document.getElementById('bakeStatusText'); 
             let width = 0; 
-            
+             
             let interval = setInterval(() => { 
                 width += 2.5; 
                 progressBar.style.width = width + '%'; 
@@ -444,7 +444,7 @@
         function showResultModal() { 
             document.getElementById('ovenScreen').style.display = 'none'; 
             document.getElementById('mainCard').style.display = 'flex'; 
-            
+             
             let name = document.getElementById('clientName').value.trim(); 
             let phone = document.getElementById('clientPhone').value.trim(); 
             let deliveryOpt = document.getElementById('deliverySelect').value; 
@@ -454,27 +454,27 @@
             let drinkSelect = document.getElementById('drinkSelect').value; 
             let paymentMethod = document.getElementById('paymentSelect').value; 
             let coupon = "OXA-" + Math.floor(1000 + Math.random() * 9000); 
-            
+             
             let now = new Date(); 
             let timeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); 
             let modeText = serviceType === 'Local' ? 'Comer en Local' : 'Para Llevar (Incluye caja S/. 2.00)'; 
             let dispatchText = deliveryOpt === 'Delivery' ? 'Delivery a domicilio' : 'Recojo en local'; 
-            
+             
             let addressDetails = deliveryOpt === 'Delivery' ? `📍 *Ubicación:* ${address}\n` : ''; 
             let phoneDetails = phone ? `📞 *Teléfono/Celular:* ${phone}\n` : '📞 *Teléfono/Celular:* No registrado (Opcional)\n'; 
             let zoneDetails = ""; 
-            
+             
             if (deliveryOpt === 'Delivery') { 
                 let zoneSelect = document.getElementById('zoneSelect'); 
                 zoneDetails = `*Zona:* ${zoneSelect.options[zoneSelect.selectedIndex].text}\n`; 
             } 
-            
+             
             document.getElementById('couponCode').innerText = coupon; 
             document.getElementById('modalDescription').innerHTML = `<b>Cliente:</b> ${name}<br><b>Total:</b> S/. ${currentPrice.toFixed(2)}<br><b>Pago:</b> ${paymentMethod}`; 
-            
-            let message = encodeURIComponent(`¡Hola Tonada Conecta! 👋🍕 Nuevo pedido recibido desde la web:\n\n*--- 📋 DATOS DEL CLIENTE 📋 ---*\n👤 *Nombre:* ${name}\n${addressDetails}${phoneDetails}⏰ *Hora del Pedido:* ${timeString}\n\n*--- 🍕 DETALLE DEL PEDIDO 🍕 ---*\n🔥 *Producto:* Pizza ${pizzaName} (${currentSize})\n${drinkSelect !== 'Ninguna' ? '🥤 *Bebida:* ' + drinkSelect + '\n' : ''}🍽️ *Modalidad:* ${modeText}\n🛵 *Despacho:* ${dispatchText}\n${zoneDetails}💳 *Forma de Pago:* ${paymentMethod}\n💰 *Precio Total:* S/. ${currentPrice.toFixed(2)}\n🎟️ *Cupón Generado:* ${coupon}\n\n🚨 *IMPORTANTE:* ¡Finaliza tu pedido mandando tu comprobante de pago! Paga a este Yape 928362491. Es obligatorio mandar tu comprobante de pago si no no serás atendido. Evitar mostrarlo, mandar por este medio por favor gracias. 🙏✨`); 
-            
-            document.getElementById('wppBtn').href = `https://wa.me/51928362491?text=${message}`; 
+             
+            let message = encodeURIComponent(`¡Hola "oxapizza"! 👋🍕 Nuevo pedido recibido desde la web:\n\n*--- 📋 DATOS DEL CLIENTE 📋 ---*\n👤 *Nombre:* ${name}\n${addressDetails}${phoneDetails}⏰ *Hora del Pedido:* ${timeString}\n\n*--- 🍕 DETALLE DEL PEDIDO 🍕 ---*\n🔥 *Producto:* Pizza ${pizzaName} (${currentSize})\n${drinkSelect !== 'Ninguna' ? '🥤 *Bebida:* ' + drinkSelect + '\n' : ''}🍽️ *Modalidad:* ${modeText}\n🛵 *Despacho:* ${dispatchText}\n${zoneDetails}💳 *Forma de Pago:* ${paymentMethod}\n💰 *Precio Total:* S/. ${currentPrice.toFixed(2)}\n🎟️ *Cupón Generado:* ${coupon}\n\n🚨 *IMPORTANTE:* ¡Finaliza tu pedido mandando tu comprobante de pago! Paga a este Yape +51 983 248 755. Es obligatorio mandar tu comprobante de pago si no no serás atendido. Evitar mostrarlo, mandar por este medio por favor gracias. 🙏✨`); 
+             
+            document.getElementById('wppBtn').href = `https://wa.me/51983248755?text=${message}`; 
             document.getElementById('rewardModal').style.display = 'flex'; 
         } 
 
